@@ -5,7 +5,8 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <180>;
+    tapping-term-ms = <180>;
 };
 
 &trackball {
@@ -61,13 +62,6 @@
             bindings = <&mo 5 &kp LALT>;
             label = "ALT_TAB";
         };
-
-        int4_0: int4_0 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&to 0 &kp INT4>;
-            label = "INT4_0";
-        };
     };
 
     behaviors {
@@ -86,13 +80,13 @@
 
         default_layer {
             bindings = <
-&kp Q           &kp W    &kp E   &kp R                       &kp T                                                &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A           &kp S    &kp D   &kp F                       &kp G            &mkp MB3              &kp EXCL      &kp H          &kp J  &lt 5 K    &kp L    &kp MINUS
-&mt LEFT_GUI Z  &kp X    &kp C   &kp V                       &kp B            &kp LG(LS(LEFT))      &kp QUESTION  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp F5          &kp ESC  &tog 2  &lt_to_layer_0 2 BACKSPACE  &mt LCTRL SPACE  &lt 3 ENTER           &mt DEL LALT  &mt LSHFT TAB                             &int4_0
+&kp Q             &kp W    &kp E   &kp R            &kp T                                                &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A             &kp S    &kp D   &kp F            &kp G            &mkp MB3              &kp EXCL      &kp H          &kp J  &lt 5 K    &kp L    &kp MINUS
+&mt LEFT_GUI Z    &kp X    &kp C   &kp V            &kp B            &kp LG(LS(LEFT))      &kp QUESTION  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&to_layer_0 INT5  &kp ESC  &tog 2  &lt 2 BACKSPACE  &mt LCTRL SPACE  &lt 3 ENTER           &mt DEL LALT  &mt LSHFT TAB                             &to_layer_0 INT4
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+            sensor-bindings = <&inc_dec_kp PAGE_DOWN PAGE_UP>;
         };
 
         FUNCTION {
@@ -112,7 +106,7 @@
 &trans     &kp PIPE  &kp COMMA  &trans  &trans        &trans         &trans          &trans                                                                      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP>;
         };
 
         ARROW {
