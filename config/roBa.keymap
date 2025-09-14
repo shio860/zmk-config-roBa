@@ -9,6 +9,12 @@
     tapping-term-ms = <180>;
 };
 
+&lt {
+    tapping-term-ms = <180>;
+    quick-tap-ms = <180>;
+    flavor = "balanced";
+};
+
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
@@ -35,43 +41,89 @@
             key-positions = <18 19>;
         };
 
-        alt_tab_left {
-            bindings = <&alt_tab>;
-            key-positions = <12 13>;
-            slow-release;
+        guiV {
+            bindings = <&kp LG(V)>;
+            key-positions = <24 25>;
         };
 
-        alt_tab_rght {
-            bindings = <&alt_tab>;
-            key-positions = <19 20>;
-            slow-release;
+        int4 {
+            bindings = <&to_kp 0 INT4>;
+            key-positions = <20 21>;
+        };
+
+        int5 {
+            bindings = <&to_kp 2 INT5>;
+            key-positions = <10 11>;
+        };
+
+        esc {
+            bindings = <&kp ESC>;
+            key-positions = <22 23>;
+        };
+
+        SGleft {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <2 3>;
         };
     };
 
     macros {
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
-        };
-
         alt_tab: alt_tab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mo 5 &kp LALT>;
+            bindings =
+                <&macro_press>,
+                <&mo 5 &kp LALT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo 5 &kp LALT>;
+
             label = "ALT_TAB";
+        };
+
+        to_kp: mo_kp {
+            compatible = "zmk,behavior-macro-two-param";
+            #binding-cells = <2>;
+            bindings = <&macro_param_1to1 &to MACRO_PLACEHOLDER &macro_param_2to1 &kp MACRO_PLACEHOLDER>;
+            label = "MO_KP";
         };
     };
 
     behaviors {
-        lt_to_layer_0: lt_to_layer_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo>, <&to_layer_0>;
+        rotate_msc: rotate_msc {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ROTATE_MSC";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
 
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
+        morph_quot: morph_quot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_QUOT";
+            bindings = <&kp LS(N2)>, <&kp LS(N7)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        morph_colon: morph_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_COLON";
+            bindings = <&kp SEMICOLON>, <&kp SINGLE_QUOTE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        morph_bar: morph_bar {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_BAR";
+            bindings = <&kp LS(MINUS)>, <&kp LS(INT1)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -80,41 +132,43 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W    &kp E   &kp R            &kp T                                                &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A             &kp S    &kp D   &kp F            &kp G            &mkp MB3              &kp EXCL      &kp H          &kp J  &lt 5 K    &kp L    &kp MINUS
-&mt LEFT_GUI Z    &kp X    &kp C   &kp V            &kp B            &kp LG(LS(LEFT))      &kp QUESTION  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&to_layer_0 INT5  &kp ESC  &tog 2  &lt 2 BACKSPACE  &mt LCTRL SPACE  &lt 3 ENTER           &mt DEL LALT  &mt LSHFT TAB                             &to_layer_0 INT4
+&kp Q           &kp W  &kp E    &kp R            &kp T                                                     &kp Y          &kp U  &kp I      &kp O        &kp P
+&lt 3 A         &kp S  &lt 5 D  &kp F            &kp G            &mkp MB3              &kp EXCL           &kp H          &kp J  &lt 5 K    &mt LCTRL L  &mt LSHFT MINUS
+&mt LEFT_GUI Z  &kp X  &kp C    &kp V            &kp B            &kp LG(LS(LEFT))      &kp QUESTION       &kp N          &kp M  &kp COMMA  &kp DOT      &kp SLASH
+&none           &none  &none    &lt 2 BACKSPACE  &mt LCTRL SPACE  &mt LALT ENTER        &mt LC(LSHFT) DEL  &mt LSHFT TAB                                 &none
             >;
 
-            sensor-bindings = <&inc_dec_kp PAGE_DOWN PAGE_UP>;
+            sensor-bindings = <&rotate_msc>;
         };
 
-        FUNCTION {
+        clipstudio {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp 0 0>;
         };
 
         NUM {
             bindings = <
-&kp SLASH  &kp N7    &kp N8     &kp N9  &kp ASTERISK                                 &kp AT           &kp BACKSLASH     &kp HASH           &kp DOLLAR            &kp PERCENT
-&kp DOT    &kp N4    &kp N5     &kp N6  &kp MINUS     &trans         &kp SQT         &kp COLON        &kp SEMICOLON     &lt 5 AMPERSAND    &kp DOUBLE_QUOTES     &kp UNDERSCORE
-&kp N0     &kp N1    &kp N2     &kp N3  &kp PLUS      &kp EQUAL      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&trans     &kp PIPE  &kp COMMA  &trans  &trans        &trans         &trans          &trans                                                                      &trans
+&kp SLASH      &kp N7    &kp N8     &kp N9  &mt ASTERISK SLASH                              &kp AT           &kp BACKSLASH               &kp HASH           &kp DOLLAR  &kp PERCENT
+&mt COMMA DOT  &kp N4    &kp N5     &kp N6  &kp MINUS           &trans      &kp SQT         &kp COLON        &mt SINGLE_QUOTE SEMICOLON  &lt 5 LS(N8)       &kp LS(N9)  &kp LS(N9)
+&kp N0         &kp N1    &kp N2     &kp N3  &kp PLUS            &trans      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp LEFT_BRACKET            &kp RIGHT_BRACKET  &kp RBRC    &kp BACKSLASH
+&trans         &kp PIPE  &kp COMMA  &trans  &trans              &trans      &trans          &trans                                                                      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP>;
+            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         ARROW {
             bindings = <
-&mt LEFT_GUI LA(F4)  &kp HOME        &kp UP_ARROW    &kp END          &kp LA(UP)                                             &kp LA(UP)        &kp HOME   &kp UP    &kp END    &mt LGUI LA(F4)
-&mt LSHFT ENTER      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LA(LEFT)       &trans              &kp LG(D)       &kp LA(LEFT)      &kp LEFT   &kp DOWN  &kp RIGHT  &mt LSHFT ENTER
-&mt LCTRL K_APP      &kp PG_UP       &kp F2          &kp PG_DN        &kp LS(LG(RIGHT))  &kp LG(LS(UP))      &kp LG(LS(UP))  &kp LG(LS(LEFT))  &kp PG_UP  &kp F2    &kp PG_DN  &mt LCTRL K_APP
-&trans               &trans          &trans          &trans           &trans             &trans              &trans          &trans                                            &trans
+&none   &kp HOME        &kp UP_ARROW    &kp END          &kp LA(UP)                                           &kp LA(UP)        &kp HOME   &kp UP    &kp END    &mt LGUI LA(F4)
+&none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LA(LEFT)     &trans              &kp LG(D)       &kp LA(LEFT)      &kp LEFT   &kp DOWN  &kp RIGHT  &mt LSHFT ENTER
+&none   &kp PG_UP       &kp F2          &kp PG_DN        &kp LA(F4)       &kp LG(LS(UP))      &kp LG(LS(UP))  &kp LG(LS(LEFT))  &kp PG_UP  &kp F2    &kp PG_DN  &mt LCTRL K_APP
+&trans  &trans          &trans          &mt LSHFT K_APP  &mt LCTRL ENTER  &mt LWIN F2         &trans          &trans                                            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
@@ -122,19 +176,19 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                            &trans
+&none  &none  &none  &none  &none                    &none  &none     &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &none     &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none                          &none
             >;
         };
 
         SCROLL {
             bindings = <
-&trans   &trans       &trans  &kp UP    &trans                      &trans  &kp LC(T)              &trans  &trans       &trans
-&kp DEL  &kp LS(TAB)  &trans  &kp TAB   &trans  &trans      &trans  &trans  &mt LCTRL LC(LS(TAB))  &trans  &kp LC(TAB)  &kp DEL
-&trans   &trans       &trans  &kp DOWN  &trans  &trans      &trans  &trans  &kp LC(W)              &trans  &trans       &trans
-&trans   &trans       &trans  &trans    &trans  &trans      &trans  &trans                                              &trans
+&trans   &trans           &trans  &kp UP       &trans                      &trans  &kp LC(T)  &trans  &trans       &trans
+&kp DEL  &kp LS(LC(TAB))  &trans  &kp LC(TAB)  &trans  &trans      &trans  &trans  &none      &trans  &kp LC(TAB)  &kp DEL
+&trans   &trans           &trans  &kp DOWN     &trans  &trans      &trans  &trans  &kp LC(W)  &trans  &trans       &trans
+&trans   &trans           &trans  &trans       &trans  &trans      &trans  &trans                                  &trans
             >;
         };
 
