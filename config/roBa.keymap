@@ -91,10 +91,10 @@
 
         NUMBER {
             bindings = <
-&kp SLASH  &kp N7  &kp N8  &kp N9  &kp ASTERISK                             &kp AMPERSAND     &kp AT         &kp RIGHT_BRACKET  &kp BACKSLASH  &kp CARET
-&kp DOT    &kp N4  &kp N5  &kp N6  &kp MINUS     &trans       &kp INT1      &kp SINGLE_QUOTE  &kp SEMICOLON  &kp LS(N8)         &kp LS(N9)     &kp UNDER
-&kp N0     &kp N1  &kp N2  &kp N3  &kp PLUS      &kp LS(N1)   &kp LS(INT3)  &kp LEFT_BRACKET  &kp LS(N3)     &kp COMMA          &kp DOT        &kp RIGHT_BRACE
-&trans     &trans  &trans  &trans  &trans        &trans       &trans        &trans                                                             &kp F12
+&kp SLASH  &kp N7  &kp N8  &kp N9  &kp ASTERISK                             &kp LS(N7)        &kp LS(N2)     &kp RIGHT_BRACKET  &kp BACKSLASH  &kp LS(N6)
+&kp DOT    &kp N4  &kp N5  &kp N6  &kp MINUS     &trans       &kp INT1      &kp SINGLE_QUOTE  &kp SEMICOLON  &kp LS(N8)         &kp LS(N9)     &kp MINUS
+&kp N0     &kp N1  &kp N2  &kp N3  &kp PLUS      &kp LS(N1)   &kp LS(INT3)  &kp INT3          &kp LS(N3)     &kp COMMA          &kp DOT        &kp LS(INT1)
+&trans     &trans  &trans  &trans  &trans        &trans       &trans        &trans                                                             &trans
             >;
         };
 
