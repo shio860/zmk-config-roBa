@@ -101,12 +101,6 @@
     };
 
     behaviors {
-        rotate_msc: rotate_msc {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ROTATE_MSC";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-        };
 
         mt_layer1: mt_layer1 {
             compatible = "zmk,behavior-hold-tap";
@@ -127,7 +121,6 @@
             tap-ms = <20>;
         };
 
-        };
     };
 
     keymap {
