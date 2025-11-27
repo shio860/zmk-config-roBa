@@ -137,10 +137,10 @@
 
         default_layer {
             bindings = <
-&kp Q     &kp W     &kp E     &kp R       &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
-&kp A     &kp S     &lt 3 D   &kp F       &kp G            &mkp MB3            &kp EXCL      &kp H          &kp J  &lt 3 K    &kp L    &lt 2 MINUS
-&lt 2 Z   &kp X     &kp C     &kp V       &kp B            &tog 1              &kp QUESTION  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp INT5  &kp LGUI  &kp LALT  &lt 1 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LALT DEL  &mt LSHFT TAB                             &kp INT4
+&kp Q              &kp W     &kp E     &kp R       &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
+&kp A              &kp S     &lt 3 D   &kp F       &kp G            &mkp MB3            &kp EXCL      &kp H          &kp J  &lt 3 K    &kp L    &lt 2 MINUS
+&lt 2 Z            &kp X     &kp C     &kp V       &kp B            &tog 1              &kp QUESTION  &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&mt_layer1 1 INT5  &kp LGUI  &kp LALT  &lt 1 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LALT DEL  &mt LSHFT TAB                             &mt_layer1 1 INT4
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -159,19 +159,19 @@
 
         ARROW {
             bindings = <
-&none   &kp HOME   &kp UP    &kp END    &kp LA(SPACE)                      &kp LA(SPACE)  &kp HOME   &kp UP    &kp END    &none
-&none   &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER      &trans      &trans  &kp ENTER      &kp LEFT   &kp DOWN  &kp RIGHT  &none
-&none   &kp PG_UP  &kp F2    &kp PG_DN  &kp K_APP      &trans      &trans  &kp K_APP      &kp PG_UP  &kp F2    &kp PG_DN  &sk LGUI
-&trans  &trans     &trans    &trans     &trans         &trans      &trans  &trans                                         &trans
+&none     &kp HOME   &kp UP    &kp END    &kp LA(SPACE)                      &kp LA(SPACE)  &kp HOME   &kp UP    &kp END    &sk LGUI
+&sk LGUI  &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER      &trans      &trans  &kp ENTER      &kp LEFT   &kp DOWN  &kp RIGHT  &none
+&none     &kp PG_UP  &kp F2    &kp PG_DN  &kp K_APP      &trans      &trans  &kp K_APP      &kp PG_UP  &kp F2    &kp PG_DN  &none
+&trans    &trans     &trans    &trans     &trans         &trans      &trans  &trans                                         &trans
             >;
         };
 
         SCROLL {
             bindings = <
-&kp LA(F4)  &none            &none   &kp LA(UP)      &kp LA(LEFT)                      &kp LA(LEFT)  &kp LA(UP)             &trans  &none           &kp LA(F4)
-&kp LC(W)   &kp LC(LS(TAB))  &none   &kp LC(TAB)     &kp LC(T)     &trans      &trans  &kp LC(T)     &mt LCTRL LC(LS(TAB))  &none   &kp LC(TAB)     &kp LC(W)
-&none       &kp LC(LS(N1))   &none   &kp LC(LS(N6))  &none         &trans      &trans  &none         &kp LC(LS(N1))         &none   &kp LC(LS(N6))  &none
-&trans      &trans           &trans  &trans          &trans        &trans      &trans  &trans                                                       &trans
+&kp LA(F4)  &none            &none   &kp LA(UP)      &kp LA(LEFT)                      &kp LA(LEFT)  &kp LA(UP)             &none  &none           &kp LA(F4)
+&kp LC(W)   &kp LC(LS(TAB))  &none   &kp LC(TAB)     &kp LC(T)     &trans      &trans  &kp LC(T)     &mt LCTRL LC(LS(TAB))  &none  &kp LC(TAB)     &kp LC(W)
+&none       &kp LC(LS(N1))   &none   &kp LC(LS(N6))  &none         &trans      &trans  &none         &kp LC(LS(N1))         &none  &kp LC(LS(N6))  &none
+&trans      &trans           &trans  &trans          &trans        &trans      &trans  &trans                                                      &trans
             >;
         };
 
