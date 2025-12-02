@@ -20,17 +20,18 @@
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <3>;
-//    arrows {
-//        layers = <2>;
-//        bindings =
-//            <&kp LG(RIGHT)>,
-//            <&kp LG(LEFT)>,
-//            <&kp LG(UP)>,
-//            <&kp LG(DOWN)>;
-//        tick = <10>;
-//        wait-ms = <5>;
-//        tap-ms = <5>;
-//    };
+
+    //    arrows {
+    //        layers = <2>;
+    //        bindings =
+    //            <&kp LG(RIGHT)>,
+    //            <&kp LG(LEFT)>,
+    //            <&kp LG(UP)>,
+    //            <&kp LG(DOWN)>;
+    //        tick = <10>;
+    //        wait-ms = <5>;
+    //        tap-ms = <5>;
+    //    };
 };
 
 / {
@@ -140,7 +141,9 @@
 &mt_layer1 1 INT5  &kp LGUI  &kp LALT  &lt 1 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LALT DEL  &mt LSHFT TAB                             &mt_layer1 1 INT4
             >;
 
-//            sensor-bindings = <&scroll_up_down>;
+            //            sensor-bindings = <&scroll_up_down>;
+
+            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
         };
 
         NUMBER {
@@ -151,7 +154,7 @@
 &trans     &trans  &trans  &trans  &trans                &trans      &trans        &trans                                                             &trans
             >;
 
- //           sensor-bindings = <&scroll_up_down>;
+            //           sensor-bindings = <&scroll_up_down>;
         };
 
         ARROW {
