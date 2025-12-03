@@ -38,11 +38,6 @@
     combos {
         compatible = "zmk,combos";
 
-        btn2 {
-            bindings = <&mkp MB2>;
-            key-positions = <18 19>;
-        };
-
         Gv {
             bindings = <&kp LG(V)>;
             key-positions = <24 25>;
@@ -62,6 +57,22 @@
         sgL {
             bindings = <&kp LS(LG(LEFT))>;
             key-positions = <11 12>;
+        };
+
+        atab2 {
+            bindings = <&alt_tab>;
+            key-positions = <18 19>;
+            slow-release;
+        };
+
+        sgl2 {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <19 20>;
+        };
+
+        f2 {
+            bindings = <&kp F2>;
+            key-positions = <23 24>;
         };
     };
 
