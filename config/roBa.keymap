@@ -18,25 +18,47 @@
 };
 
 &trackball {
-    automouse-layer = <4>;
+    automouse-layer = <5>;
     scroll-layers = <3>;
 
-    //    arrows {
-    //        layers = <2>;
-    //        bindings =
-    //            <&kp LG(RIGHT)>,
-    //            <&kp LG(LEFT)>,
-    //            <&kp LG(UP)>,
-    //            <&kp LG(DOWN)>;
-    //        tick = <10>;
-    //        wait-ms = <5>;
-    //        tap-ms = <5>;
-    //    };
+//    arrows {
+//        layers = <2>;
+//        bindings =
+//            <&kp LG(RIGHT)>,
+//            <&kp LG(LEFT)>,
+//            <&kp LG(UP)>,
+//            <&kp LG(DOWN)>;
+//        tick = <10>;
+//        wait-ms = <5>;
+//        tap-ms = <5>;
+//    };
 };
 
 / {
     combos {
         compatible = "zmk,combos";
+
+        atab {
+            bindings = <&alt_tab>;
+            key-positions = <12 13>;
+            slow-release;
+        };
+
+        atab2 {
+            bindings = <&alt_tab>;
+            key-positions = <18 19>;
+            slow-release;
+        };
+
+        sgl {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <11 12>;
+        };
+
+        sgl2 {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <19 20>;
+        };
 
         Gv {
             bindings = <&kp LG(V)>;
@@ -46,28 +68,6 @@
         esc {
             bindings = <&kp ESC>;
             key-positions = <22 23>;
-        };
-
-        Atab {
-            bindings = <&alt_tab>;
-            key-positions = <12 13>;
-            slow-release;
-        };
-
-        sgL {
-            bindings = <&kp LS(LG(LEFT))>;
-            key-positions = <11 12>;
-        };
-
-        atab2 {
-            bindings = <&alt_tab>;
-            key-positions = <18 19>;
-            slow-release;
-        };
-
-        sgl2 {
-            bindings = <&kp LS(LG(LEFT))>;
-            key-positions = <19 20>;
         };
 
         f2 {
@@ -128,17 +128,15 @@
             flavor = "balanced";
         };
 
-        // エンコーダ用スクロール動作の追加
+// エンコーダ用スクロール動作の追加
+//        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+//            compatible = "zmk,behavior-sensor-rotate";
+//            #sensor-binding-cells = <0>;
+//            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
-            // スクロールのタップ時間を設定 (20ms)
-
-            tap-ms = <20>;
-        };
+// スクロールのタップ時間を設定 (20ms)
+//            tap-ms = <20>;
+//        };
     };
 
     keymap {
@@ -146,15 +144,14 @@
 
         default_layer {
             bindings = <
-&kp Q     &kp W  &kp E    &kp R       &kp T                                              &kp Y          &kp U  &kp I           &kp O          &kp P
-&lt 2 A   &kp S  &lt 3 D  &kp F       &kp G            &mkp MB3            &none         &kp H          &kp J  &lt 3 K         &lt 4 L        &lt 2 MINUS
-&kp Z     &kp X  &kp C    &kp V       &kp B            &none               &none         &kp N          &kp M  &mt LALT COMMA  &mt LCTRL DOT  &mt LSHFT SLASH
-&kp INT5  &none  &none    &lt 1 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LALT DEL  &mt LSHFT TAB                                        &mt_layer1 1 INT4
+&kp Q     &kp W  &kp E    &kp R       &kp T                                              &kp Y          &kp U  &kp I      &kp O    &kp P
+&lt 2 A   &kp S  &lt 3 D  &kp F       &kp G            &mkp MB3            &none         &kp H          &kp J  &lt 3 K    &lt 4 L  &lt 2 MINUS
+&kp Z     &kp X  &kp C    &kp V       &kp B            &none               &none         &kp N          &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp INT5  &none  &none    &lt 1 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LALT DEL  &mt LSHFT TAB                             &mt_layer1 1 INT4
             >;
 
-            //            sensor-bindings = <&scroll_up_down>;
-
             sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+//            sensor-bindings = <&scroll_up_down>;
         };
 
         NUMBER {
@@ -164,8 +161,6 @@
 &kp N0        &kp N1  &kp N2    &kp N3  &kp LS(SEMICOLON)     &trans      &kp LS(INT3)  &kp INT3          &kp LS(N3)     &kp COMMA          &kp DOT        &kp LS(INT1)
 &trans        &trans  &trans    &trans  &trans                &trans      &trans        &trans                                                             &trans
             >;
-
-            //           sensor-bindings = <&scroll_up_down>;
         };
 
         ARROW {
@@ -189,8 +184,8 @@
         MOUSE {
             bindings = <
 &none  &none  &none  &none  &none                    &none  &none     &mkp MB3  &none  &none
-&none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkp MB2  &none  &none
-&none  &none  &none  &none  &none  &none      &none  &none  &none     &none     &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkp MB2  &none  &kp LSHFT
+&none  &none  &none  &none  &none  &none      &none  &none  &none     &none     &none  &kp LCTRL
 &none  &none  &none  &none  &none  &none      &none  &none                             &none
             >;
         };
