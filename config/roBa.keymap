@@ -53,13 +53,27 @@
         };
 
         int4 {
-            bindings = <&l0_int4>;
+            bindings = <&kp INT4>;
             key-positions = <19 20>;
+            layers = <0>;
         };
 
         int5 {
+            bindings = <&kp INT5>;
+            key-positions = <11 12>;
+            layers = <0>;
+        };
+
+        l0int4 {
+            bindings = <&l0_int4>;
+            key-positions = <19 20>;
+            layers = <1>;
+        };
+
+        l0int5 {
             bindings = <&l0_int5>;
             key-positions = <11 12>;
+            layers = <1>;
         };
 
         lt1 {
@@ -97,14 +111,14 @@
         l0_int4: l0_int4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog_off 1 &kp INT5>;
+            bindings = <&tog 1 &kp INT5>;
             label = "L0_INT5";
         };
 
         l0_int5: l0_int5 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog_off 1 &kp INT5>;
+            bindings = <&tog 1 &kp INT5>;
             label = "L0_INT5";
         };
 
