@@ -13,7 +13,7 @@
     scroll-layers = <5>;
 
      arrows {
-         layers = <3>;
+         layers = <2>;
          bindings =
              <&kp RIGHT_ARROW>,
              <&kp LEFT_ARROW>,
@@ -153,14 +153,14 @@
             bindings = <
 &kp SLASH     &kp N7    &kp N8    &kp N9  &kp LS(SINGLE_QUOTE)                      &kp LS(N7)        &kp LS(N2)     &kp RIGHT_BRACKET  &kp BACKSLASH  &kp LS(N6)
 &lt 2 KP_DOT  &lt 3 N4  &lt 5 N5  &kp N6  &kp MINUS             &none       &none   &kp SINGLE_QUOTE  &kp SEMICOLON  &lt 5 LS(N8)       &lt 3 LS(N9)   &lt 2 MINUS
-&kp LGUI      &kp N1    &kp N2    &kp N3  &kp LS(SEMICOLON)     &none       &none   &kp INT3          &kp LS(N3)     &kp COMMA          &kp DOT        &mt LALT LS(INT1)
+&kp N0        &kp N1    &kp N2    &kp N3  &kp LS(SEMICOLON)     &none       &none   &kp INT3          &kp LS(N3)     &kp COMMA          &kp DOT        &mt LALT LS(INT1)
 &none         &none     &none     &trans  &mt LCTRL SPACE   &trans      &trans  &trans                                                             &none
             >;
         };
 
         ARROW {
             bindings = <
-&kp LC(ENTER)  &kp HOME        &kp UP_ARROW    &kp TAB          &none                                       &none      &kp HOME   &kp UP    &kp END    &kp LA(P)
+&none          &kp HOME        &kp UP_ARROW    &kp TAB          &none                                       &none      &kp HOME   &kp UP    &kp END    &none
 &none          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp ENTER        &none       &none          &kp ENTER  &kp LEFT   &kp DOWN  &kp RIGHT  &none
 &none          &kp PG_UP       &kp F2          &kp PG_DN        &kp K_APP        &none       &none          &kp K_APP  &kp PG_UP  &kp F2    &kp PG_DN  &none
 &none          &none           &none           &mt LSHFT BSPC   &mt LCTRL SPACE  &trans      &mt LCTRL DEL  &trans                                     &none
@@ -188,10 +188,10 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&kp LA(F4)      &kp F11           &none  &kp LA(UP)        &kp LA(LEFT)                      &kp LA(LEFT)   &kp LA(UP)             &none  &kp F11        &kp LA(F4)
+&kp LC(T)       &kp LC(LS(LEFT))  &none  &kp LC(TAB)       &kp LC(LS(N1))  &none      &none  &kp LC(LS(N1)) &mt LCTRL LC(LS(TAB))  &none  &kp LC(TAB)    &kp LC(T) 
+&kp LC(W)       &kp LS(LG(S))     &none  &kp LG(LS(LEFT))  &kp LS(LC(N6))  &none      &none  &kp LC(LS(N6)) &kp LG(LS(RIGHT))      &none  &kp LS(LG(S))  &kp LC(W)
+&none           &none             &none  &none             &none           &none      &none  &none                                                       &none
             >;
         };
 
