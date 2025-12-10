@@ -165,9 +165,9 @@
                 <&macro_param_1to1 &tog 1>,
                 <&macro_pause_for_release>,
                 <&macro_release>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&macro_param_1to1 &to 1>,
+                <&macro_param_1to1 &to 1>;
             label = "LT0KP";
         };
 
@@ -178,7 +178,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LT1_KP";
             bindings = <&lt1kp>, <&kp>;
-
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             flavor = "balanced";
@@ -188,7 +187,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LT0_KP";
             bindings = <&lt0kp>, <&kp>;
-
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             flavor = "balanced";
