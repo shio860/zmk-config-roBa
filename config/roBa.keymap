@@ -25,9 +25,9 @@
              <&kp LG(LEFT)>,
              <&kp LG(UP)>,
              <&kp LG(DOWN)>;
-         tick = <30>;
-         wait-ms = <20>;
-         tap-ms = <20>;
+         tick = <30>; // 表示タスク実行間の間隔
+         wait-ms = <5>; // 次のbehaviorをトリガーするまでの待機時間
+         tap-ms = <30>; // behaviorのプレスとリリース間の待機時間
     };
 };
 
@@ -146,12 +146,12 @@
             #binding-cells = <1>;
             bindings =
                 <&macro_press>,
-                <&to 1>,
+                <&mo 1>,
                 <&macro_tap>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
                 <&macro_release>,
-                <&tog 1>;
+                <&mo 1>;
             label = "LT1KP";
         };
 
