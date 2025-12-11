@@ -25,9 +25,10 @@
              <&kp LG(LEFT)>,
              <&kp LG(UP)>,
              <&kp LG(DOWN)>;
-         tick = <50>; // 表示タスク実行間の間隔
-         wait-ms = <5>; // 次のbehaviorをトリガーするまでの待機時間
-         tap-ms = <5>; // behaviorのプレスとリリース間の待機時間
+         tick = <80>; // 表示タスク実行間の間隔
+         wait-ms = <30>; // 次のbehaviorをトリガーするまでの待機時間
+         tap-ms = <30>; // behaviorのプレスとリリース間の待機時間
+         delay-ms = <0>; // 処理の遅らせ時間
     };
 };
 
