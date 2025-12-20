@@ -174,6 +174,15 @@
     };
 
     behaviors {
+        mkt: mkt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mkt";
+            bindings = <&kp>, <&mkp>;
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            flavor = "balanced";
+        };
+
         lt1_kp: lt1_kp {
             compatible = "zmk,behavior-hold-tap";
             label = "LT1_KP";
@@ -192,13 +201,6 @@
             flavor = "balanced";
         };
 
-        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-            tap-ms = <20>;
-        };
-
     };
 
     keymap {
@@ -206,13 +208,13 @@
 
         default_layer {
             bindings = <
-&kp Q    &kp W    &kp E    &kp R              &kp T                                                  &kp Y          &kp U  &kp I            &kp O          &kp P
-&lt 2 A  &lt 3 S  &lt 5 D  &kp F              &kp G            &none               &none             &kp H          &kp J  &lt 5 K          &lt 3 L        &lt 2 MINUS
-&kp Z    &kp X    &kp C    &kp V              &kp B            &none               &none             &kp N          &kp M  &mt LSHFT COMMA  &mt LCTRL DOT  &mt LALT SLASH
-&none    &none    &none    &lt1_kp INT5 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &lt1_kp INT4 DEL  &mt LSHFT TAB                                         &none
+&kp Q       &kp W    &kp E    &kp R              &kp T                                                  &kp Y          &kp U  &kp I            &kp O          &kp P
+&lt 2 A     &lt 3 S  &lt 4 D  &kp F              &kp G            &none               &none             &kp H          &kp J  &lt 4 K          &lt 3 L        &lt 2 MINUS
+&mt LGUI Z  &kp X    &kp C    &kp V              &kp B            &none               &none             &kp N          &kp M  &mt LSHFT COMMA  &mt LCTRL DOT  &mt LALT SLASH
+&none       &none    &none    &lt1_kp INT5 BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &lt1_kp INT4 DEL  &mt LSHFT TAB                                         &none
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         NUM {
@@ -235,19 +237,10 @@
 
         MOUSE {
             bindings = <
-&none  &none  &none  &none  &none                    &none  &none     &mkp MB3  &none  &none
-&none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkp MB2  &none  &none
+&none  &none  &none  &none  &none                    &none  &none     &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
 &none  &none  &none  &none  &none  &none      &none  &none  &none     &none     &none  &none
 &none  &none  &none  &none  &none  &none      &none  &none                             &none
-            >;
-        };
-
-        AUTOMOUSE {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
             >;
         };
 
@@ -260,7 +253,7 @@
             >;
         };
 
-        layer_6 {
+        FREE {
             bindings = <
 &trans  &trans        &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
@@ -268,5 +261,16 @@
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
             >;
         };
+
+        AUTOMOUSE {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+            >;
+        };
+
+
     };
 };
