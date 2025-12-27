@@ -2,20 +2,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <180>;
     tapping-term-ms = <180>;
 };
 
 &lt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
-    tapping-term-ms = <180>;
+    quick-tap-ms = <120>;
+    tapping-term-ms = <120>;
 };
 
 &trackball {
@@ -77,13 +76,13 @@
         };
 
         l0int4 {
-            bindings = <&l0_int4>;
+            bindings = <&kptog INT4>;
             key-positions = <19 20>;
             layers = <1>;
         };
 
         l0int5 {
-            bindings = <&l0_int5>;
+            bindings = <&kptog INT5>;
             key-positions = <11 12>;
             layers = <1>;
         };
@@ -117,42 +116,20 @@
             label = "ALT_TAB";
         };
 
-        l0_int4: l0_int4 { //レイヤ１オフ　ＩＭＥオフ
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&tog 1 &kp INT5>;
-            label = "L0_INT4";
-        };
-
-        l0_int5: l0_int5 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&tog 1 &kp INT5>;
-            label = "L0_INT5";
-        };
-
-        l1_int5: l1_int5 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&to 1 &kp INT5>;
-            label = "L1_INT5";
-        };
-
-        lt1kp: lt1kp {
+        lt_tog: lt_tog {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
-                <&macro_press>,
-                <&mo 1>,
                 <&macro_tap>,
+                <&tog 1>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo 1>;
-            label = "LT1KP";
+                <&macro_tap>,
+                <&tog 1>;
+            label = "LT_TOG";
         };
 
-        lt0kp: lt0kp {
+        mt_tog: mt_tog {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
@@ -164,10 +141,19 @@
                 <&macro_release>,
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&to 1>;
-            label = "LT0KP";
+                <&tog 1>;
+            label = "MT_TOG";
         };
 
+        kp_tog: kp_tog {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&tog 1>,
+            label = "KP_TOG";
+        };
     };
 
     behaviors {
@@ -180,22 +166,39 @@
             flavor = "balanced";
         };
 
-        lt1_kp: lt1_kp {
+        lttog: lttog {
             compatible = "zmk,behavior-hold-tap";
-            label = "LT1_KP";
-            bindings = <&lt1kp>, <&kp>;
+            label = "LTTOG";
+            bindings = <&lt_tog>, <&kp>;
             #binding-cells = <2>;
+            quick-tap-ms = <180>;
             tapping-term-ms = <180>;
             flavor = "balanced";
         };
 
-        lt0_kp: lt0_kp {
+        mttog: mttog {
             compatible = "zmk,behavior-hold-tap";
-            label = "LT0_KP";
-            bindings = <&lt0kp>, <&kp>;
+            label = "MTTOG";
+            bindings = <&mt_tog>, <&kp>;
             #binding-cells = <2>;
+            quick-tap-ms = <180>;
             tapping-term-ms = <180>;
             flavor = "balanced";
+        };
+
+        kptog: kptog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "KPTOG";
+            bindings = <&none>, <&kp_tog>;
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+        };
+
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>; // 追加: スクロールのタップ時間を設定 (20ms)
         };
 
     };
@@ -205,70 +208,67 @@
 
         default_layer {
             bindings = <
-&kp Q       &kp W    &kp E      &kp R              &kp T                                                      &kp Y          &kp U  &kp I            &kp O          &kp P
-&lt 2 A     &lt 3 S  &lt 5 D    &kp F              &kp G            &none                   &none             &kp H          &kp J  &lt 5 K          &lt 3 L        &lt 2 MINUS
-&mt LGUI Z  &kp X    &kp C      &kp V              &kp B            &none                   &none             &kp N          &kp M  &mt LSHFT COMMA  &mt LCTRL DOT  &mt LALT SLASH
-&none       &none    &l1_int5   &lt1_kp INT5 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER     &lt1_kp INT4 DEL  &mt LSHFT TAB                                         &none
+&kp Q       &kp W    &kp E       &kp R             &kp T                                               &kp Y          &kp U  &kp I      &kp O    &kp P
+&lt 2 A     &lt 3 S  &lt 5 D     &kp F             &kp G            &none                   &none      &kp H          &kp J  &lt 5 K    &lt 3 L  &lt 2 MINUS
+&mt LGUI Z  &kp X    &kp C       &kp V             &kp B            &none                   &none      &kp N          &kp M  &kp COMMA  &kp DOT  &mt LALT SLASH
+&none       &none    &kptog INT5 &lttog INT5 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER     &lt 1 DEL  &mt LSHFT TAB                             &none
             >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
+//            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         NUM1 {
             bindings = <
-&kp SLASH     &kp N7    &kp N8    &kp N9  &kp LS(SINGLE_QUOTE)                      &kp LS(N7)        &kp LS(N2)     &kp RIGHT_BRACKET  &kp BACKSLASH  &kp LS(N6)
-&lt 2 KP_DOT  &lt 3 N4  &lt 5 N5  &kp N6  &kp MINUS             &none       &none   &kp SINGLE_QUOTE  &kp SEMICOLON  &lt 5 LS(N8)       &lt 3 LS(N9)   &trans
-&mt LGUI N0   &kp N1    &kp N2    &kp N3  &kp LS(SEMICOLON)     &none       &none   &kp INT3          &kp LS(N3)     &trans             &trans         &mt LALT LS(INT1)
-&none         &none     &none     &none   &lt0_kp LCTRL SPACE   &trans      &none   &trans                                                             &none
+&kp SLASH     &kp N7    &kp N8    &kp N9      &kp LS(SINGLE_QUOTE)                      &kp LS(N7)        &kp LS(N2)     &kp RIGHT_BRACKET  &kp BACKSLASH  &kp LS(N6)
+&lt 2 KP_DOT  &lt 3 N4  &lt 5 N5  &kp N6      &kp MINUS             &none       &none   &kp SINGLE_QUOTE  &kp SEMICOLON  &lt 5 LS(N8)       &lt 3 LS(N9)   &trans
+&mt LGUI N0   &kp N1    &kp N2    &kp N3      &kp LS(SEMICOLON)     &none       &none   &kp INT3          &kp LS(N3)     &trans             &trans         &mt LALT LS(INT1)
+&none         &none     &none     &lt 1 BSPC  &mttog LCTRL SPACE    &trans      &trans  &trans                                                             &none
             >;
         };
 
         ARROW2 {
             bindings = <
-&none  &kp HOME   &kp UP    &kp END         &none                                               &none      &kp HOME   &kp UP    &kp END    &none
-&none  &kp LEFT   &kp DOWN  &kp RIGHT       &kp ENTER        &none               &none          &kp ENTER  &kp LEFT   &kp DOWN  &kp RIGHT  &none
-&none  &kp PG_UP  &kp F2    &kp PG_DN       &kp K_APP        &none               &none          &kp K_APP  &kp PG_UP  &kp F2    &kp PG_DN  &none
-&none  &none      &none     &mt LSHFT BSPC  &mt LCTRL SPACE  &mt LGUI ENTER      &mt LCTRL DEL  &trans                                     &none
+&kp K_APP  &kp HOME   &kp UP    &kp END        &none                                                        &none      &kp HOME   &kp UP    &kp END    &kp K_APP
+&none      &kp LEFT   &kp DOWN  &kp RIGHT      &kp ENTER        &none                    &none              &kp ENTER  &kp LEFT   &kp DOWN  &kp RIGHT  &none
+&none      &kp PG_UP  &kp F2    &kp PG_DN      &kp K_APP        &none                    &none              &kp K_APP  &kp PG_UP  &kp F2    &kp PG_DN  &none
+&none      &none      &none     &mt LGUI BSPC  &mt LSHFT SPACE  &mt LS(LCTRL) ENTER      &mt LS(LCTRL) DEL  &trans                                     &none
             >;
         };
 
         MOUSE3 {
             bindings = <
-&none  &none  &msc SCRL_UP    &none  &none                    &none  &none     &none           &none  &none
-&none  &none  &msc SCRL_DOWN  &none  &none  &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
-&none  &none  &none           &none  &none  &none      &none  &none  &none     &none           &none  &none
-&none  &none  &none           &none  &none  &none      &none  &none                                   &none
+&none       &none  &kp F5     &kp F4       &kp LC(F1)                               &none  &none     &none           &none  &none
+&kp LC(N1)  &none  &kp PG_UP  &kp PG_DOWN  &kp LC(MINUS)          &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
+&none       &none  &none      &none        &kp LC(LS(SEMICOLON))  &none      &none  &none  &none     &none           &none  &none
+&none       &none  &none      &none        &mt LCTRL SPACE        &none      &none  &none                                   &none
             >;
         };
 
         AUTOMOUSE4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                            &trans
             >;
         };
 
         SCROLL5 {
             bindings = <
-&kp LA(F4)      &kp F11           &none  &kp LA(UP)        &kp LA(LEFT)                      &kp LA(LEFT)   &kp LA(UP)             &none  &kp F11        &kp LA(F4)
-&kp LC(T)       &kp LC(LS(LEFT))  &none  &kp LC(TAB)       &kp LC(LS(N1))  &none      &none  &kp LC(LS(N1)) &mt LCTRL LC(LS(TAB))  &none  &kp LC(TAB)    &kp LC(T) 
-&kp LC(W)       &kp LS(LG(S))     &none  &kp LG(LS(LEFT))  &kp LS(LC(N6))  &none      &none  &kp LC(LS(N6)) &kp LG(LS(RIGHT))      &none  &kp LS(LG(S))  &kp LC(W)
-&none           &none             &none  &none             &none           &none      &none  &none                                                       &none
+&kp LA(F4)      &kp F11          &none  &kp LA(UP)        &kp LA(LEFT)                                          &kp LA(LEFT)      &kp LA(UP)             &none  &kp F11        &kp LA(F4)
+&kp LC(T)       &kp LC(LS(TAB))  &none  &kp LC(TAB)       &kp LC(LS(N1))    &none               &none           &kp LC(LS(N1))    &mt LCTRL LC(LS(TAB))  &none  &kp LC(TAB)    &kp LC(T) 
+&kp LC(W)       &kp LS(LG(S))    &none  &kp LG(LS(LEFT))  &kp LS(LC(N6))    &none               &none           &kp LC(LS(N6))    &kp LG(LS(RIGHT))      &none  &kp LS(LG(S))  &kp LC(W)
+&none           &none            &none  &none             &kp LG(LS(LEFT))  &kp LG(LS(UP))      &kp LG(LS(UP))  &kp LG(LS(LEFT))                                               &none
             >;
         };
-
-
 
         FREE6 {
             bindings = <
-&trans  &trans        &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
+&none  &none  &none  &none  &none                    &none  &none  &none  &none  &none 
+&none  &none  &none  &none  &none  &none      &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none      &none  &none  &none  &none  &none  &none
             >;
         };
-
     };
 };
