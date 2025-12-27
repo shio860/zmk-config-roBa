@@ -229,18 +229,18 @@
         ARROW2 {
             bindings = <
 &kp K_APP  &kp HOME   &kp UP    &kp END        &none                                                        &none      &kp HOME   &kp UP    &kp END    &kp K_APP
-&none      &kp LEFT   &kp DOWN  &kp RIGHT      &kp ENTER        &none                    &none              &kp ENTER  &kp LEFT   &kp DOWN  &kp RIGHT  &none
-&none      &kp PG_UP  &kp F2    &kp PG_DN      &kp K_APP        &none                    &none              &kp K_APP  &kp PG_UP  &kp F2    &kp PG_DN  &none
+&none      &kp LEFT   &kp DOWN  &kp RIGHT      &none            &none                    &none              &none      &kp LEFT   &kp DOWN  &kp RIGHT  &none
+&none      &kp PG_UP  &kp F2    &kp PG_DN      &none            &none                    &none              &none      &kp PG_UP  &kp F2    &kp PG_DN  &none
 &none      &none      &none     &mt LGUI BSPC  &mt LSHFT SPACE  &mt LS(LCTRL) ENTER      &mt LS(LCTRL) DEL  &trans                                     &none
             >;
         };
 
         MOUSE3 {
             bindings = <
-&none       &none  &kp F5     &kp F4       &kp LC(F1)                               &none  &none     &none           &none  &none
-&kp LC(N1)  &none  &kp PG_UP  &kp PG_DOWN  &kp LC(MINUS)          &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
-&none       &none  &none      &none        &kp LC(LS(SEMICOLON))  &none      &none  &none  &none     &none           &none  &none
-&none       &none  &none      &none        &mt LCTRL SPACE        &none      &none  &none                                   &none
+&none       &none  &kp F5     &kp F4     &kp LC(F1)                               &none  &none     &none           &none  &none
+&kp LC(N1)  &none  &kp PG_UP  &kp PG_DN  &kp LC(MINUS)          &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
+&none       &none  &none      &none      &kp LC(LS(SEMICOLON))  &none      &none  &none  &none     &none           &none  &none
+&none       &none  &none      &none      &mt LCTRL SPACE        &none      &none  &none                                   &none
             >;
         };
 
