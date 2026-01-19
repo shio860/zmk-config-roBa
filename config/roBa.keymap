@@ -1,4 +1,4 @@
-#include <behaviors.dtsi>
+j#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
@@ -247,7 +247,8 @@
       AUTOMOUSE4 {
         bindings = <
           &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans  &trans
-          &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &trans  &trans
+          &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans  &trans
+//          &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                            &trans
         >;
