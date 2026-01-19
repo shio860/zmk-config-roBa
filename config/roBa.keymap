@@ -20,17 +20,17 @@
 &trackball {
   automouse-layer = <4>;
   scroll-layers = <5>;
-//  arrows {
-//    layers = <2>;
-//    bindings =
-//    <&kp LG(RIGHT)>,
-//    <&kp LG(LEFT)>,
-//    <&kp LG(UP)>,
-//    <&kp LG(DOWN)>;
-//    tick = <80>; // 表示タスク実行間の間隔
-//    wait-ms = <30>; // 次のbehaviorをトリガーするまでの待機時間
-//    tap-ms = <30>; // behaviorのプレスとリリース間の待機時間
-//  };
+  arrows {
+    layers = <2>;
+    bindings =
+    <&kp LG(RIGHT)>,
+    <&kp LG(LEFT)>,
+    <&kp LG(UP)>,
+    <&kp LG(DOWN)>;
+    tick = <80>; // 表示タスク実行間の間隔
+    wait-ms = <30>; // 次のbehaviorをトリガーするまでの待機時間
+    tap-ms = <30>; // behaviorのプレスとリリース間の待機時間
+  };
 };
 
 / {
@@ -157,13 +157,23 @@
     };
 
     behaviors {
-      mkt: mkt {
+      mmt: mmt {
         compatible = "zmk,behavior-hold-tap";
-        label = "mkt";
+        label = "mmt";
         bindings = <&kp>, <&mkp>;
         #binding-cells = <2>;
         tapping-term-ms = <180>;
         flavor = "balanced";
+      };
+
+      swp: swp {
+        compatible = "zmk,behavior-hold-tap";
+        label = "swp";
+        bindings = <&mo>, <&kp>;
+        #binding-cells = <2>;
+        tapping-term-ms = <180>;
+        flavor = "balanced";
+        hold-while-undecided;
       };
 
       lttog: lttog {
@@ -208,7 +218,7 @@
       default_layer {
         bindings = <
           &kp Q       &kp W  &kp E         &kp R             &kp T                                               &kp Y          &kp U  &kp I      &kp O    &kp P
-          &kp A       &kp S  &kp D         &kp F             &kp G            &none                   &none      &kp H          &kp J  &lt 5 K    &lt 3 L  &lt 2 MINUS
+          &kp A       &kp S  &kp D         &kp F             &kp G            &none                   &none      &kp H          &kp J  &lt 5 K    &lt 3 L  &swp 2 MINUS
           &mt LGUI Z  &kp X  &kp C         &kp V             &kp B            &none                   &none      &kp N          &kp M  &kp COMMA  &kp DOT  &mt LALT SLASH
           &none       &none  &kptog 1 INT5 &lttog INT5 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER     &lt 1 DEL  &mt LSHFT TAB                             &none
         >;
@@ -237,7 +247,7 @@
       MOUSE3 {
         bindings = <
           &none  &none  &none  &none  &none                    &none  &none     &none           &none  &none
-          &none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
+          &none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mmt LCTRL MB2  &none  &mmt LSHFT MB3
           &none  &none  &none  &none  &none  &none      &none  &none  &none     &none           &none  &none
           &none  &none  &none  &none  &none  &none      &none  &none                                   &none
         >;
