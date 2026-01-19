@@ -237,7 +237,8 @@
       MOUSE3 {
         bindings = <
           &none  &none  &none  &none  &none                    &none  &none     &none           &none  &none
-          &none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
+          &none  &none  &none  &none  &none                    &none  &none     &none           &none  &none
+//          &none  &none  &none  &none  &none  &none      &none  &none  &mkp MB1  &mkt LCTRL MB2  &none  &mkt LSHFT MB3
           &none  &none  &none  &none  &none  &none      &none  &none  &none     &none           &none  &none
           &none  &none  &none  &none  &none  &none      &none  &none                                   &none
         >;
