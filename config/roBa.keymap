@@ -114,7 +114,7 @@
       AUTOMOUSE4 {
         bindings = <
           &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans  &trans
-          &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &trans  &trans
+          &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                            &trans
         >;
@@ -123,8 +123,8 @@
       SCROLL5 {
         bindings = <
           &kp HOME        &kp END      &none   &kp UP     &kp LA(F4)                    &kp LA(F4)  &kp UP    &none  &kp HOME   &kp END
-          &kp F2          &kp LEFT     &none   &kp RIGHT  &kp LA(UP)  &trans    &trans  &kp LA(UP)  &mt LEFT  &none  &kp LEFT   &kp F2
-          &mt LGUI PG_UP  &kp PG_DOWN  &none   &kp DOWN   &kp LC(W)   &trans    &trans  &kp LC(W)   &kp DOWN  &none  &kp PG_UP  &mt LALT PG_UP
+          &kp F2          &kp LEFT     &none   &kp RIGHT  &kp LA(UP)  &trans    &trans  &kp LA(UP)  &mt LEFT  &none  &kp RIGHT  &kp F2
+          &mt LGUI PG_UP  &kp PG_DOWN  &none   &kp DOWN   &kp LC(W)   &trans    &trans  &kp LC(W)   &kp DOWN  &none  &kp PG_UP  &mt LALT PG_DOWN
           &trans          &trans       &trans  &trans     &trans      &trans    &trans  &trans                                  &trans
         >;
       };
