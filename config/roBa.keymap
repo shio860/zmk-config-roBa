@@ -11,19 +11,6 @@
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
-
-    // arrows {
-    //     layers = <3>;
-    //     bindings =
-    //         <&kp RIGHT_ARROW>,
-    //         <&kp LEFT_ARROW>,
-    //         <&kp UP_ARROW>,
-    //         <&kp DOWN_ARROW>;
-
-    //     tick = <10>;
-    //     wait-ms = <5>;
-    //     tap-ms = <5>;
-    // };
 };
 
 / {
@@ -70,7 +57,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
@@ -78,15 +64,13 @@
 
     keymap {
         compatible = "zmk,keymap";
-
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R                        &kp T                                                          &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F                        &kp G        &kp LS(LG(S))                      &kp MINUS      &kp H        &kp J  &kp K      &kp L    &kp SQT
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V                        &kp B        &kp COLON                          &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 6 INT_HENKAN  &lt 2 SPACE  &lt_to_layer_0 3 INT_MUHENKAN      &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
+                &kp TAB     &kp W  &kp E      &kp R             &kp T                                            &kp Y          &kp U     &kp I      &kp O    &kp P
+                &kp A       &kp S  &kp D      &kp F             &kp G      &kp MB3                &kp PG_UP      &kp H          &mkp MB1  &lt 5 K    &kp L    &kp J
+                &mt LGUI Z  &kp X  &kp C      &kp V             &kp B      &kp Y                  &kp PAGE_DOWN  &kp N          &kp M     &kp COMMA  &kp DOT  &mt LALT SLASH
+                &kp INT5    &none  &lt 1 INT5 &lt 1 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER    &lt 1 DEL      &mt LSHFT TAB                                &INT4
             >;
-
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
