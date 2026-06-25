@@ -30,21 +30,41 @@
             bindings = <&alt_tab>;
             key-positions = <12 13>;
             slow-release;
-            layers = <0 1>;
+            layers = <0 1 2>;
         };
 
         alt_tabr {
             bindings = <&alt_tab>;
             key-positions = <18 19>;
             slow-release;
-            layers = <0 1>;
+            layers = <0 1 2>;
+        };
+
+        mb2 {
+            bindings = <&mkp MB2>;
+            key-positions = <19 20>;
+            layers = <0 1 2>;
         };
 
         esc {
             bindings = <&kp ESC>;
-            key-positions = <22 23>;
-            layers = <0 1>;
+            key-positions = <23 24>;
+            layers = <0 1 2>;
         };
+
+        sg_leftl {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <24 25>;
+            layers = <0 1 2>;
+        };
+
+        sg_leftr {
+            bindings = <&kp LS(LG(LEFT))>;
+            key-positions = <30 31>;
+            layers = <0 1 2>;
+        };
+
+
     };
 
     macros {
@@ -86,61 +106,44 @@
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
-        onisi_layer {
+        layer_1 {
             bindings = <
 &trans   &kp X    &kp E    &kp C    &kp L                          &kp P    &kp Y    &kp N    &kp R    &mt LSHFT W
-&kp A    &kp I    &lt 3 U    &kp O    &kp J    &trans        &trans  &kp H    &trans   &lt 3 K  &kp S    &mt LCTRL T
+&kp U    &kp I    &lt 3 A  &kp O    &kp J    &trans        &trans  &kp H    &trans   &lt 3 K  &kp S    &mt LCTRL T
 &mt LGUI MINUS &kp DOT  &kp COMMA  &kp V  &kp F  &trans     &trans  &kp B    &kp M    &kp G    &kp Z    &mt LALT D
-&trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
+&trans    &trans    &trans    &trans   &lt 4 SPACE    &trans        &trans    &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&encoder_msc_down_up>;
         };
 
-        NUM {
+        layer_2 {
             bindings = <
-&kp FSLH  &kp N7    &kp N8    &kp N9    &kp LS(SQT)                        &kp LS(N7)  &kp LS(N2)  &kp RBRC    &kp BSLH   &mt LSHFT LS(N6)
+&kp FSLH  &kp N7    &kp N8    &kp N9    &kp LS(SQT)                        &kp LS(N7)  &kp LS(N2)  &kp RBKT    &kp BSLH   &mt LSHFT LS(N6)
 &kp N0    &kp N4    &kp N5    &kp N6    &kp MINUS  &trans        &kp SEMI  &kp SQT     &trans      &kp LS(N8)  &kp LS(N9)  &mt LCTRL FSLH
 &mt LGUI KP_DOT  &kp N1  &kp N2  &kp N3  &kp LS(SEMI)  &trans    &trans    &kp INT3    &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &mt LALT LS(INT1)
 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&encoder_msc_down_up>;
         };
 
-        ARROW {
+        layer_3 {
             bindings = <
 &kp HOME   &kp END    &none    &kp UP     &kp LA(F4)                      &kp LA(F4)  &kp UP    &trans  &kp HOME   &kp END
 &kp F2     &kp LEFT   &none    &kp RIGHT  &kp LA(UP)  &trans      &trans  &kp LA(UP)  &kp LEFT  &trans  &kp RIGHT  &mt LCTRL F2
 &kp PG_UP  &kp PG_DN  &none    &kp DOWN   &kp LC(W)   &trans      &trans  &kp LC(W)   &kp DOWN  &trans  &kp PG_UP  &kp PG_DN
 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
             >;
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&encoder_msc_down_up>;
         };
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&kp TAB   &kp LC(W) &kp LG(E) &kp LC(R) &kp LC(T)                     &kp LC(Y) &kp LC(U) &kp LC(I) &kp LC(O) &kp LC(P)
+&kp LC(A) &kp LC(S) &kp LG(D) &kp LC(F) &kp LG(G) &trans      &trans  &kp LA(H) &mkp MB1  &kp LC(K) &kp LC(L) &kp LC(J)
+&kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(B) &trans      &trans  &kp LC(N) &kp LC(M) &kp COMMA &kp DOT  &mt LALT MINUS
+&trans    &trans    &trans    &trans    &trans    &trans      &trans    &trans        &trans
             >;
-        };
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
-            >;
+            sensor-bindings = <&encoder_msc_down_up>;
         };
     };
 };
