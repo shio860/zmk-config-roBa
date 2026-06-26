@@ -98,10 +98,10 @@
 
         default_layer {
             bindings = <
-&kp TAB  &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U    &kp I    &kp O    &mt LSHFT P
+&kp Q    &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U    &kp I    &kp O    &mt LSHFT P
 &kp A    &kp S    &lt 3 D  &kp F    &kp G    &mkp MB3     &kp LS(N1) &kp H    &mkp MB1 &lt 3 K  &kp L    &mt LCTRL J
-&mt LGUI Z &kp X  &kp C    &kp V    &kp B    &kp Q        &tog 1     &kp N    &kp M    &kp COMMA &kp DOT  &mt LALT MINUS
-&kp INT5    &kp LS(LG(S))    &to 2    &lt 2 BSPC    &mt LCTRL SPACE    &mt LS(LCTRL) ENTER    &lt 2 DEL    &mt LSHFT TAB        &kp INT4
+&mt LGUI Z &kp X  &kp C    &kp V    &kp B    &kp Y        &tog 1     &kp N    &kp M    &kp COMMA &kp DOT  &mt LALT MINUS
+&kp INT5    &kp LS(LG(S))    &to 2    &lt 4 BSPC    &mt LCTRL SPACE    &mt LS(LCTRL) ENTER    &lt 2 DEL    &mt LSHFT TAB        &kp INT4
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
@@ -110,8 +110,8 @@
             bindings = <
 &trans   &kp X    &kp E    &kp C    &kp L                          &kp P    &kp Y    &kp N    &kp R    &mt LSHFT W
 &kp U    &kp I    &lt 3 A  &kp O    &kp J    &trans        &trans  &kp H    &trans   &lt 3 K  &kp S    &mt LCTRL T
-&mt LGUI MINUS &kp DOT  &kp COMMA  &kp V  &kp F  &trans     &trans  &kp B    &kp M    &kp G    &kp Z    &mt LALT D
-&trans    &trans    &trans    &trans   &lt 4 SPACE    &trans        &trans    &trans        &trans
+&mt LGUI MINUS  &kp DOT  &kp COMMA  &kp V  &kp F  &trans   &trans  &kp B    &kp M    &kp G    &kp Z    &mt LALT D
+&trans    &trans    &trans    &trans   &trans    &trans        &trans    &trans        &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
@@ -128,9 +128,9 @@
 
         layer_3 {
             bindings = <
-&kp HOME   &kp END    &none    &kp UP     &kp LA(F4)                      &kp LA(F4)  &kp UP    &none   &kp HOME   &kp END
+&kp HOME   &kp END    &none    &kp UP     &kp LA(F4)                      &kp LA(F4)  &kp UP    &none   &kp HOME   &mt LSHFT END
 &kp F2     &kp LEFT   &none    &kp RIGHT  &kp LA(UP)  &trans      &trans  &kp LA(UP)  &kp LEFT  &none   &kp RIGHT  &mt LCTRL F2
-&kp PG_UP  &kp PG_DN  &none    &kp DOWN   &kp LC(W)   &trans      &trans  &kp LC(W)   &kp DOWN  &none   &kp PG_UP  &kp PG_DN
+&mt LGUI PG_UP  &kp PG_DN  &none  &kp DOWN  &kp LC(W)  &trans     &trans  &kp LC(W)   &kp DOWN  &none   &kp PG_UP  &mt LALT PG_DN
 &trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
@@ -138,7 +138,7 @@
 
         layer_4 {
             bindings = <
-&kp TAB   &kp LC(W) &kp LG(E) &kp LC(R) &kp LC(T)                     &kp LC(Y) &kp LC(U) &kp LC(I) &kp LC(O) &kp LC(P)
+&kp LC(TAB)&kp LC(W)&kp LG(E) &kp LC(R) &kp LC(T)                     &kp LC(Y) &kp LC(U) &kp LC(I) &kp LC(O) &kp LC(P)
 &kp LC(A) &kp LC(S) &kp LC(D) &kp LC(F) &kp LG(G) &trans      &trans  &kp LA(H) &mkp MB1  &kp LC(K) &kp LC(L) &kp LC(J)
 &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(B) &trans      &trans  &kp LC(N) &kp LC(M) &kp COMMA &kp DOT  &mt LALT MINUS
 &trans    &trans    &trans    &trans    &trans    &trans      &trans    &trans        &trans
