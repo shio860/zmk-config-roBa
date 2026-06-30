@@ -125,7 +125,7 @@
             bindings = <
 &kp LA(F4)  &kp F11          &none   &kp LA(UP)   &none                             &none            &kp LA(UP)            &none &kp F11      &kp LA(F4)
 &kp LC(T)   &kp LS(LC(TAB))  &none   &kp LC(TAB)  &kp LS(LG(LEFT))  &trans  &trans  &kp LS(LG(LEFT)) &mt LCTRL LS(LC(TAB)) &none &kp LC(TAB)  &kp LC(T)
-&kp LC(W)   &none            &none   &none        &none             &trans  &trans  &none            &none                 &none &none        &kp LC(W)
+&kp LC(W)   &mkp MB3         &none   &none        &none             &trans  &trans  &none            &none                 &none &mkp MB3     &kp LC(W)
 &trans      &trans           &trans  &trans       &trans            &trans  &trans  &trans                                                    &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
@@ -133,10 +133,10 @@
 
         layer_3 {
             bindings = <
-&none   &kp HOME   &kp UP    &kp END         &none                                    &none      &kp HOME    &kp UP    &kp END    &none
-&none   &kp LEFT   &kp DOWN  &kp RIGHT       &kp ENTER  &trans          &trans        &kp ENTER  &kp LEFT    &kp DOWN  &kp RIGHT  &none
-&none   &kp PG_UP  &kp F2    &kp PG_DN       &kp K_APP  &trans          &trans        &kp K_APP  &kp PG_UP   &kp F2    &kp PG_DN  &none
-&trans  &trans     &trans    &mt LSHFT BSPC  &trans     &mt LGUI ENTER  &mt LGUI DEL  &trans                                      &trans
+&none   &kp HOME   &kp UP    &kp END        &mkp MB3                                  &mkp MB3   &kp HOME    &kp UP    &kp END    &none
+&none   &kp LEFT   &kp DOWN  &kp RIGHT      &kp ENTER  &trans           &trans        &kp ENTER  &kp LEFT    &kp DOWN  &kp RIGHT  &none
+&none   &kp PG_UP  &kp F2    &kp PG_DN      &kp K_APP  &trans           &trans        &kp K_APP  &kp PG_UP   &kp F2    &kp PG_DN  &none
+&trans  &trans     &trans    &mt LGUI BSPC  &trans     &mt LSHFT ENTER  &mt LGUI DEL  &trans                                      &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
