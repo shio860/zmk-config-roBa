@@ -55,6 +55,7 @@
     };
 
     macros {
+
         alt_tab: alt_tab {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -68,6 +69,17 @@
                 <&kp LALT &mo 2>;
             label = "ALT_TAB";
         };
+
+        loff: loff {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_param_1to1>,
+                <&macro_tap &kp MACRO_PLACEHOLDER>,
+                <&to 0>;
+            label = "loff";
+        };
+
     };
 
     behaviors {
@@ -85,10 +97,10 @@
 
         default_layer {
             bindings = <
-&kp Q       &kp W  &kp E    &kp R       &kp T                                             &kp Y          &kp U     &kp I      &kp O    &kp P
-&lt 3 A     &kp S  &lt 2 D  &kp F       &kp G            &mkp MB3             &kp LS(N1)  &kp H          &mkp MB1  &lt 2 K    &kp L    &lt 3 J
-&mt LGUI Z  &kp X  &kp C    &kp V       &kp B            &kp Y                &tog 1      &kp N          &kp M     &kp COMMA  &kp DOT  &mt LALT MINUS
-&kp INT5    &none  &tog 1   &lt 1 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER  &lt 1 DEL   &mt LSHFT TAB                                &kp INT4
+&kp Q       &kp W  &kp E    &kp R       &kp T                                         &kp Y          &kp U     &kp I      &kp O    &kp P
+&lt 3 A     &kp S  &lt 2 D  &kp F       &kp G            &mkp MB3         &kp LS(N1)  &kp H          &mkp MB1  &lt 2 K    &kp L    &lt 3 J
+&mt LGUI Z  &kp X  &kp C    &kp V       &kp B            &kp Y            &tog 1      &kp N          &kp M     &kp COMMA  &kp DOT  &mt LALT MINUS
+&loff INT5  &none  &tog 1   &lt 1 BSPC  &mt LCTRL SPACE  &mt LSHFT ENTER  &lt 1 DEL   &mt LSHFT TAB                                &loff INT4
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
@@ -105,10 +117,10 @@
 
         layer_2 {
             bindings = <
-&kp LA(F4)  &kp F11          &none   &kp LA(UP)   &none                           &none          &kp LA(UP)            &none &kp F11      &kp LA(F4)
-&kp LC(T)   &kp LS(LC(TAB))  &none   &kp LC(TAB)  &kp LS(LG(UP))  &trans  &trans  &kp LS(LG(UP)) &mt LCTRL LS(LC(TAB)) &none &kp LC(TAB)  &kp LC(T)
-&mt LC(W)   &none            &none   &none        &none           &trans  &trans  &none          &none                 &none &none        &kp LC(W)
-&trans      &trans           &trans  &trans       &trans          &trans  &trans  &trans                                                  &trans
+&kp LA(F4)  &kp F11          &none   &kp LA(UP)   &none                             &none            &kp LA(UP)            &none &kp F11      &kp LA(F4)
+&kp LC(T)   &kp LS(LC(TAB))  &none   &kp LC(TAB)  &kp LS(LG(LEFT))  &trans  &trans  &kp LS(LG(LEFT)) &mt LCTRL LS(LC(TAB)) &none &kp LC(TAB)  &kp LC(T)
+&mt LC(W)   &none            &none   &none        &none             &trans  &trans  &none            &none                 &none &none        &kp LC(W)
+&trans      &trans           &trans  &trans       &trans            &trans  &trans  &trans                                                    &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
