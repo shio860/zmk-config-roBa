@@ -52,19 +52,6 @@
             layers = <0 1 2>;
         };
 
-        sgleftl {
-            bindings = <&kp LS(LG(LEFT))>;
-            key-positions = <24 25>;
-            layers = <0 1 2>;
-        };
-
-        sgleftr {
-            bindings = <&kp LS(LG(LEFT))>;
-            key-positions = <30 31>;
-            layers = <0 1 2>;
-        };
-
-
     };
 
     macros {
@@ -98,32 +85,43 @@
 
         default_layer {
             bindings = <
-&kp TAB  &kp W    &kp E    &kp R    &kp T                            &kp Y    &kp U    &kp I    &kp O    &mt LSHFT P
-&kp A    &kp S    &lt 2 D  &kp F    &kp G    &mkp MB3     &kp LS(N1) &kp H    &mkp MB1 &lt 2 K  &kp L    &mt LCTRL J
-&mt LGUI Z &kp X  &kp C    &kp V    &kp B    &kp Q        &tog 1     &kp N    &kp M    &kp COMMA &kp DOT  &mt LALT MINUS
-&kp INT5    &kp LS(LG(S))    &tog 1    &lt 1 BSPC    &mt LCTRL SPACE    &mt LS(LCTRL) ENTER        &lt 1 DEL    &mt LSHFT TAB        &kp INT4
+&kp Q       &kp W  &kp E    &kp R       &kp T                                             &kp Y          &kp U     &kp I      &kp O    &kp P
+&lt 3 A     &kp S  &lt 2 D  &kp F       &kp G            &mkp MB3             &kp LS(N1)  &kp H          &mkp MB1  &lt 2 K    &kp L    &lt 3 J
+&mt LGUI Z  &kp X  &kp C    &kp V       &kp B            &kp Y                &tog 1      &kp N          &kp M     &kp COMMA  &kp DOT  &mt LALT MINUS
+&kp INT5    &none  &tog 1   &lt 1 BSPC  &mt LCTRL SPACE  &mt LS(LCTRL) ENTER  &lt 1 DEL   &mt LSHFT TAB                                &kp INT4
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
         layer_1 {
             bindings = <
-&kp KP_SLASH &kp N7 &kp N8    &kp N9    &kp LS(SQT)                        &kp LS(N7)  &kp LS(N2)  &kp RBKT    &kp BSLH   &mt LSHFT LS(N6)
-&kp N0    &kp N4    &kp N5    &kp N6    &kp MINUS  &trans        &kp SEMI  &kp SQT     &trans      &kp LS(N8)  &kp LS(N9)  &mt LCTRL FSLH
-&mt LGUI KP_DOT  &kp N1  &kp N2  &kp N3  &kp LS(SEMI)  &trans    &trans    &kp INT3    &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &mt LALT LS(INT1)
-&trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
+&kp KP_SLASH     &kp N7  &kp N8    &kp N9  &kp LS(SQT)                     &kp LS(N7)  &kp LS(N2)  &kp RBKT      &kp BSLH    &kp LS(N6)
+&lt 3 N0         &kp N4  &lt 2 N5  &kp N6  &kp MINUS     &trans  &kp SEMI  &kp SQT     &trans      &lt 2 LS(N8)  &kp LS(N9)  &lt 3 FSLH
+&mt LGUI KP_DOT  &kp N1  &kp N2    &kp N3  &kp LS(SEMI)  &trans  &trans    &kp INT3    &kp LS(N3)  &kp COMMA     &kp DOT     &mt LALT LS(INT1)
+&trans           &trans  &trans    &trans  &trans        &trans  &trans    &trans                                            &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
         layer_2 {
             bindings = <
-&kp HOME   &kp END    &none    &kp UP     &kp LA(F4)                      &kp LA(F4)  &kp UP    &none   &kp HOME   &mt LSHFT END
-&kp F2     &kp LEFT   &none    &kp RIGHT  &kp LA(UP)  &trans      &trans  &kp LA(UP)  &kp LEFT  &none   &kp RIGHT  &mt LCTRL F2
-&mt LGUI PG_UP  &kp PG_DN  &none  &kp DOWN  &kp LC(W)  &trans     &trans  &kp LC(W)   &kp DOWN  &none   &kp PG_UP  &mt LALT PG_DN
-&trans    &trans    &trans    &trans    &trans    &trans        &trans    &trans        &trans
+&kp LA(F4)  &kp F11          &none   &kp LA(UP)   &none                           &none          &kp LA(UP)            &none &kp F11      &kp LA(F4)
+&kp LC(T)   &kp LS(LC(TAB))  &none   &kp LC(TAB)  &kp LS(LG(UP))  &trans  &trans  &kp LS(LG(UP)) &mt LCTRL LS(LC(TAB)) &none &kp LC(TAB)  &kp LC(T)
+&mt LC(W)   &none            &none   &none        &none           &trans  &trans  &none          &none                 &none &none        &kp LC(W)
+&trans      &trans           &trans  &trans       &trans          &trans  &trans  &trans                                                  &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
+
+        layer_3 {
+            bindings = <
+&none   &kp HOME   &kp UP    &kp END         &none                                    &none      &kp HOME    &kp UP    &kp END    &none
+&none   &kp LEFT   &kp DOWN  &kp RIGHT       &kp ENTER  &trans          &trans        &kp ENTER  &kp LEFT    &kp DOWN  &kp RIGHT  &none
+&none   &kp PG_UP  &kp F2    &kp PG_DN       &kp K_APP  &trans          &trans        &kp K_APP  &kp PG_UP   &kp F2    &kp PG_DN  &none
+&trans  &trans     &trans    &mt LSHFT BSPC  &trans     &mt LGUI ENTER  &mt LGUI DEL  &trans                                      &trans
+            >;
+            sensor-bindings = <&encoder_msc_down_up>;
+        };
+
     };
 };
