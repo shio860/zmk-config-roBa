@@ -8,8 +8,7 @@
 &mt {
     flavor = "balanced";
     quick-tap-ms = <120>;
-    tapping-term-ms = <180>;
-    hold-while-undecided;
+    tapping-term-ms = <120>;
 };
 
 &lt {
@@ -124,20 +123,20 @@
 
         layer_2 {
             bindings = <
-&kp LA(F4)  &kp F11          &none   &kp LA(UP)   &none                             &none            &kp LA(UP)            &none &kp F11      &kp LA(F4)
-&kp LC(T)   &kp LS(LC(TAB))  &none   &kp LC(TAB)  &kp LS(LG(LEFT))  &trans  &trans  &kp LS(LG(LEFT)) &mt LCTRL LS(LC(TAB)) &none &kp LC(TAB)  &kp LC(T)
-&kp LC(W)   &kp ESC          &none   &mkp MB2     &none             &trans  &trans  &none            &mkp MB2              &none &mkp MB3     &kp LC(W)
-&trans      &trans           &trans  &trans       &trans            &trans  &trans  &trans                                                    &trans
+&kp LA(F4)  &kp F11        &none   &kp LA(UP)       &kp LS(LC(N1))                                    &none            &kp LA(UP)  &none &kp F11      &kp LA(F4)
+&kp LC(T)   &kp F4         &none   &kp LC(N1)       &kp LC(N1)      &kp LS(LC(TAB))   &trans          &kp LS(LG(LEFT)) &mkp MB2    &none &kp LC(TAB)  &kp LC(T)
+&kp LC(W)   &kp LC(MINUS)  &none   &kp LC(PLUS)     &kp LS(LC(N6))  &kp LS(LC(TAB))   &trans          &none            &mkp MB2    &none &mkp MB3     &kp LC(W)
+&trans      &trans         &trans  &kp LS(LC(TAB))  &kp LC(TAB)     &kp ESC          &kp LS(LC(TAB))  &kp LC(TAB)                                     &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
         layer_3 {
             bindings = <
-&none   &kp PG_UP  &kp UP    &kp PG_DN      &mkp MB3                                  &mkp MB3   &kp PG_UP  &kp UP    &kp PG_DN  &none
-&none   &kp LEFT   &kp DOWN  &kp RIGHT      &kp ENTER  &trans           &trans        &kp ENTER  &kp LEFT   &kp DOWN  &kp RIGHT  &none
-&none   &kp HOME   &kp F2    &kp END        &kp K_APP  &trans           &trans        &kp K_APP  &kp HOME   &kp F2    &kp END    &none
-&trans  &trans     &trans    &mt LGUI BSPC  &trans     &mt LSHFT ENTER  &mt LGUI DEL  &trans                                     &trans
+&none   &kp HOME   &kp UP    &kp END        &mkp MB3                                        &mkp MB3         &kp HOME   &kp UP    &kp END    &none
+&none   &kp LEFT   &kp DOWN  &kp RIGHT      &kp ENTER        &trans           &trans        &kp ENTER        &kp LEFT   &kp DOWN  &kp RIGHT  &none
+&none   &kp PG_UP  &kp F2    &kp PG_DN      &kp K_APP        &trans           &trans        &kp K_APP        &kp PG_UP  &kp F2    &kp PG_DN  &none
+&trans  &trans     &trans    &mt LGUI BSPC  &mt LCTRL SPACE  &mt LSHFT ENTER  &mt LGUI DEL  &mt LSHFT ENTER                                  &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
