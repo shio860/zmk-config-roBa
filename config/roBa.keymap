@@ -7,13 +7,13 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <120>;
-    tapping-term-ms = <120>;
+    quick-tap-ms = <200>;
+    tapping-term-ms = <140>;
 };
 
 &lt {
     flavor = "balanced";
-    quick-tap-ms = <120>;
+    quick-tap-ms = <200>;
     tapping-term-ms = <180>;
 };
 
@@ -27,7 +27,7 @@
         compatible = "zmk,combos";
 
         alttabl {
-            timeout-ms = <200>;
+            timeout-ms = <50>;
             bindings = <&alt_tab>;
             key-positions = <12 38>;
             slow-release;
@@ -35,9 +35,9 @@
         };
 
         alttabr {
-            timeout-ms = <200>;
+            timeout-ms = <50>;
             bindings = <&alt_tab>;
-            key-positions = <18 41>;
+            key-positions = <19 41>;
             slow-release;
             layers = <0 1 2>;
         };
