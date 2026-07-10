@@ -44,7 +44,7 @@
 
         ctab1 {
             bindings = <&kp LC(TAB)>;
-            key-positions = <17 18>;
+            key-positions = <11 12>;
             layers = <0 1>;
         };
 
@@ -101,7 +101,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&kp LS(N8) &kp LS(N9) &kp ENTER &kp LEFT>,
+                <&kp LS(N8) &kp LS(N9) &kp ENTER &kp LEFT>;
             label = "RYO_KAKKO";
         };
 
