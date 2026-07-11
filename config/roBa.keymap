@@ -7,14 +7,14 @@
 
 &mt {
     flavor = "balanced";
+    tapping-term-ms = <180>;
     quick-tap-ms = <200>;
-    tapping-term-ms = <160>;
 };
 
 &lt {
     flavor = "balanced";
+    tapping-term-ms = <180>;
     quick-tap-ms = <200>;
-    tapping-term-ms = <160>;
 };
 
 &trackball {
@@ -137,7 +137,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <160>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
             hold-while-undecided;
@@ -148,7 +148,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <160>;
+            tapping-term-ms = <180>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&mkp>;
             hold-while-undecided;
@@ -176,13 +176,6 @@
             bindings = <&kp KP_DOT>, <&kp KP_COMMA>;
         };
 
-        td16: tap_dance_16 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LC(LS(N1))>, <&kp LC(LS(N6))>;
-        };
-
     };
 
     keymap {
@@ -190,20 +183,20 @@
 
         default_layer {
             bindings = <
-&kp Q       &kp W         &kp E         &kp R             &kp T                                     &kp Y          &kp U     &kp I      &kp  O        &kp P
-&mt LALT A  &mmt LCTRL S  &mmt LSHFT D  &mmt LS(LCTRL) F  &kp G            &mkp MB3     &tog 1      &kp H          &mkp MB1  &lt 3 K    &mmt LCTRL L  &mmt LSHFT J
-&mt LGUI Z  &kp X         &kp C         &kp V             &kp B            &kp TAB      &tog 2      &kp N          &kp M     &kp COMMA  &kp  DOT      &mmt LALT MINUS
-&l0_int5    &tog 2        &tog 1        &lt 1 BSPC        &mt LCTRL SPACE  &lt 2 ENTER  &lt 2 DEL   &mt LSHFT TAB                                     &l0_int4
+&kp Q       &kp W       &kp E             &kp R         &kp T                                     &kp Y          &kp U     &kp I      &kp  O        &kp P
+&kp A       &mt LALT S  &mmt LS(LCTRL) D  &mmt LSHFT F  &kp G            &mkp MB3     &tog 1      &kp H          &mkp MB1  &lt 3 K    &mmt LCTRL L  &mmt LSHFT J
+&mt LGUI Z  &kp X       &kp C             &kp V         &kp B            &kp TAB      &tog 2      &kp N          &kp M     &kp COMMA  &kp  DOT      &mmt LALT MINUS
+&l0_int5    &tog 2      &tog 1            &lt 1 BSPC    &mt LCTRL SPACE  &lt 2 ENTER  &lt 2 DEL   &mt LSHFT TAB                                     &l0_int4
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
         layer_1 {
             bindings = <
-&kp KP_SLASH  &kp N7  &kp N8  &kp N9  &kp LS(SQT)                      &kp LS(N1)    &tdQTT  &kp RBKT       &kp BSLH     &kp LS(MINUS)
-&kp N0        &kp N4  &kp N5  &kp N6  &kp MINUS     &trans  &kp CARET  &kp LS(FSLH)  &trans  &lt 3 LS(N8)   &kp LS(N9)   &kp LS(INT1)
-&tdCOT        &kp N1  &kp N2  &kp N3  &kp LS(SEMI)  &trans  &kp INT3   &kp AT        &tdCRN  &kp LS(COMMA)  &kp LS(DOT)  &kp LS(N6)
-&trans        &trans  &trans  &trans  &trans        &trans  &trans     &trans                                            &trans
+&kp KP_SLASH  &kp N7  &kp N8  &kp N9  &kp LS(SQT)                     &kp LS(N1)    &tdQTT  &kp RBKT       &kp BSLH     &kp LS(MINUS)
+&mt LCTRL N0  &kp N4  &kp N5  &kp N6  &kp MINUS     &trans  &kp NUBS  &kp LS(FSLH)  &trans  &lt 3 LS(N8)   &kp LS(N9)   &kp LS(INT1)
+&tdCOT        &kp N1  &kp N2  &kp N3  &kp LS(SEMI)  &trans  &kp INT3  &kp LBRC      &tdCRN  &kp LS(COMMA)  &kp LS(DOT)  &kp LS(N6)
+&trans        &trans  &trans  &trans  &trans        &trans  &trans    &trans                                            &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
@@ -211,7 +204,7 @@
         layer_2 {
             bindings = <
 &kp LA(F4)       &kp HOME   &kp UP        &kp END         &kp LA(UP)                                 &kp LA(UP)        &kp HOME   &kp UP        &kp END    &kp LA(F4)
-&mt LSHFT ENTER  &kp LEFT   &kp DOWN      &kp RIGHT       &kp LS(LC(LEFT))  &trans           &trans  &kp LS(LC(LEFT))  &kp LEFT   &kp DOWN      &kp RIGHT  &mt LSHFT ENTER
+&mt LSHFT ENTER  &kp LEFT   &kp DOWN      &kp RIGHT       &kp LS(LG(LEFT))  &trans           &trans  &kp LS(LG(LEFT))  &kp LEFT   &kp DOWN      &kp RIGHT  &mt LSHFT ENTER
 &mt LGUI K_APP   &kp PG_UP  &mt LCTRL F2  &kp PG_DN       &td16             &trans           &trans  &td16             &kp PG_UP  &mt LCTRL F2  &kp PG_DN  &mt LGUI K_APP
 &trans           &trans     &trans        &mt LSHFT BSPC  &mt LCTRL SPACE   &mt LSHFT ENTER  &trans  &trans                                                &trans
             >;
