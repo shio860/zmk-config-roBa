@@ -24,6 +24,12 @@
 
 / {
     combos {
+
+//    ０ １ ２ ３ ４ 　　  　 ５ ６ ７ ８ ９
+//    10 11 12 13 14 15　16 17 18 19 20 21
+//    22 23 24 25 26 27　28 29 30 31 32 33
+//    34 35 36 37 38 39　40 41	        42
+
         compatible = "zmk,combos";
 
         alttab1 {
@@ -42,29 +48,12 @@
             layers = <0 1>;
         };
 
-        ctab1 {
-            bindings = <&kp LC(TAB)>;
-            key-positions = <11 12>;
-            layers = <0 1>;
-        };
-
-        ctab2 {
-            bindings = <&kp LC(TAB)>;
-            key-positions = <19 20>;
-            layers = <0 1>;
-        };
-
         esc {
             bindings = <&kp ESC>;
             key-positions = <23 24>;
             layers = <0 1>;
         };
 
-        gv {
-            bindings = <&kp LG(V)>;
-            key-positions = <24 25>;
-            layers = <0 1>;
-        };
 
         kakko {
             bindings = <&ryo_kakko>;
@@ -193,10 +182,10 @@
 
         layer_1 {
             bindings = <
-&kp KP_SLASH  &kp N7  &kp N8  &kp N9  &kp LS(SQT)                     &kp LS(N1)    &tdQTT  &kp RBKT       &kp BSLH     &kp LS(MINUS)
-&mt LCTRL N0  &kp N4  &kp N5  &kp N6  &kp MINUS     &trans  &kp NUBS  &kp LS(FSLH)  &trans  &lt 3 LS(N8)   &kp LS(N9)   &kp LS(INT1)
-&tdCOT        &kp N1  &kp N2  &kp N3  &kp LS(SEMI)  &trans  &kp INT3  &kp LBRC      &tdCRN  &kp LS(COMMA)  &kp LS(DOT)  &kp LS(N6)
-&trans        &trans  &trans  &trans  &trans        &trans  &trans    &trans                                            &trans
+&kp KP_SLASH  &kp N7  &kp N8            &kp N9  &kp KP_ASTERISK                    &kp LS(N1)  &tdQTT  &kp RBKT       &kp BSLH     &kp LS(MINUS)
+&mt LCTRL N0  &kp N4  &mt LS(LCTRL) N5  &kp N6  &kp KP_MINUS     &trans  &kp NUBS  &kp LS(N6)  &trans  &lt 3 LS(N8)   &kp LS(N9)   &kp LS(INT1)
+&tdCOT        &kp N1  &kp N2            &kp N3  &kp KP_PLUS      &trans  &kp INT3  &kp LBRC    &tdCRN  &kp LS(COMMA)  &kp LS(DOT)  &kp SLASH
+&trans        &trans  &trans            &trans  &trans           &trans  &trans    &trans                                          &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
@@ -204,8 +193,8 @@
         layer_2 {
             bindings = <
 &kp LA(F4)       &kp HOME   &kp UP        &kp END         &kp LA(UP)                                 &kp LA(UP)        &kp HOME   &kp UP        &kp END    &kp LA(F4)
-&mt LSHFT ENTER  &kp LEFT   &kp DOWN      &kp RIGHT       &kp LS(LG(LEFT))  &trans           &trans  &kp LS(LG(LEFT))  &kp LEFT   &kp DOWN      &kp RIGHT  &mt LSHFT ENTER
-&mt LGUI K_APP   &kp PG_UP  &mt LCTRL F2  &kp PG_DN       &kp LS(LG(UP))    &trans           &trans  &kp LS(LG(UP))    &kp PG_UP  &mt LCTRL F2  &kp PG_DN  &mt LGUI K_APP
+&mt LSHFT ENTER  &kp LEFT   &kp DOWN      &kp RIGHT       &kp LC(TAB)       &trans           &trans  &kp LC(TAB)       &kp LEFT   &kp DOWN      &kp RIGHT  &mt LSHFT ENTER
+&mt LGUI K_APP   &kp PG_UP  &mt LCTRL F2  &kp PG_DN       &kp LS(LG(LEFT))  &trans           &trans  &kp LS(LG(LEFT))  &kp PG_UP  &mt LCTRL F2  &kp PG_DN  &mt LGUI K_APP
 &trans           &trans     &trans        &mt LSHFT BSPC  &mt LCTRL SPACE   &mt LSHFT ENTER  &trans  &trans                                                &trans
             >;
             sensor-bindings = <&encoder_msc_down_up>;
@@ -213,10 +202,10 @@
 
         layer_3 {
             bindings = <
-&none  &none  &none  &none  &none                &none  &none            &none  &none            &none 
-&none  &none  &none  &none  &none  &none  &none  &none  &mmkp LCTRL MB2  &none  &mmkp LSHFT MB3  &none  
-&none  &none  &none  &none  &none  &none  &none  &none  &none            &none  &none            &none  
-&none  &none  &none  &none  &none  &none  &none  &none                                           &none  
+&none  &none  &none  &none  &none                &none     &none            &none  &none            &none 
+&none  &none  &none  &none  &none  &none  &none  &mkp MB4  &mmkp LCTRL MB2  &none  &mmkp LSHFT MB3  &mkp MB5  
+&none  &none  &none  &none  &none  &none  &none  &none     &none            &none  &none            &none  
+&none  &none  &none  &none  &none  &none  &none  &none                                              &none  
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
