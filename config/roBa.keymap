@@ -48,25 +48,17 @@
             layers = <0 1>;
         };
 
+        tab {
+            bindings = <&kp ESC>;
+            key-positions = <11 12>;
+            layers = <0 1>;
+        };
+
         esc {
             bindings = <&kp ESC>;
             key-positions = <23 24>;
             layers = <0 1>;
         };
-
-
-        kakko {
-            bindings = <&ryo_kakko>;
-            key-positions = <30 31>;
-            layers = <0 1>;
-        };
-
-        ten {
-            bindings = <&kp FSLH>;
-            key-positions = <31 32>;
-            layers = <0 1>;
-        };
-
 
     };
 
@@ -209,7 +201,6 @@
             >;
             sensor-bindings = <&encoder_msc_down_up>;
         };
-
 
     };
 };
